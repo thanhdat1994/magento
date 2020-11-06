@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceContainer name="header.container" htmlId="header" htmlClass="header-container">
+            <referenceContainer name="header.panel.wrapper" htmlClass="header_top">
+                <block class="Magento\Datlt\Block\Header\HeaderTop" name="header-top" template="Magento_Datlt::headers/header_top_block.phtml"/>
+            </referenceContainer>
+            <referenceContainer name="header-wrapper" htmlClass="header-middle">
+                <container htmlTag="div" htmlClass="container">
+                    <container htmlTag="div" htmlClass="row">
+                        <container htmlTag="div" htmlClass="col-sm-4">
+                            <container name="header-logo" htmlTag="div" htmlClass="logo-header pull-left">
+                                <block class="Magento\Theme\Block\Html\Header\Logo" template="Magento_Datlt::headers/logo.phtml"/>
+                            </container>
+                        </container>
+                        <container name="header-link" htmlTag="div" htmlClass="col-sm-8 mt-10">
+                            <container name="header-link-menu" htmlTag="div" htmlClass="shop-menu pull-right">
+                                <referenceBlock name="top.links">
+                                    <block class="Magento\Customer\Block\Account\Link" name="my-account-link" template="Magento_Datlt::account/my-account.phtml">
+                                        <arguments>
+                                            <argument name="label" xsi:type="string" translate="true">Account</argument>
+                                            <argument name="sortOrder" xsi:type="number">440</argument>
+                                        </arguments>
+                                    </block>
+                                    <block class="Magento\Wishlist\Block\Link" name="wish-list-link" after="my-account-link"
+                                           template="Magento_Datlt::account/wishlist.phtml">
+                                        <arguments>
+                                            <argument name="label" xsi:type="string" translate="true">Wishlist</argument>
+                                            <argument name="sortOrder" xsi:type="number">220</argument>
+                                        </arguments>
+                                    </block>
+                                    <block class="Magento\Checkout\Block\Cart\Sidebar" name="minicart" as="minicart" after="wish-list-link" template="Magento_Datlt::account/minicart.phtml">
+                                        <arguments>
+                                            <argument name="sortOrder" xsi:type="number">110</argument>
+                                            <argument name="jsLayout" xsi:type="array">
+                                                <item name="types" xsi:type="array"/>
+                                                <item name="components" xsi:type="array">
+                                                    <item name="minicart_content" xsi:type="array">
+                                                        <item name="component" xsi:type="string">Magento_Checkout/js/view/minicart</item>
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="template" xsi:type="string">Magento_Checkout/minicart/content</item>
+                                                        </item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="subtotal.container" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="displayArea" xsi:type="string">subtotalContainer</item>
+                                                                </item>
+                                                                <item name="children" xsi:type="array">
+                                                                    <item name="subtotal" xsi:type="array">
+                                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                                        <item name="config" xsi:type="array">
+                                                                            <item name="template" xsi:type="string">Magento_Checkout/minicart/subtotal</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                            <item name="extra_info" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="displayArea" xsi:type="string">extraInfo</item>
+                                                                </item>
+                                                            </item>
+                                                            <item name="promotion" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="displayArea" xsi:type="string">promotion</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </argument>
+                                        </arguments>
+                                        <container name="minicart.addons" label="Mini-cart promotion block"/>
+                                    </block>
+                                    <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link"
+                                           template="Magento_Datlt::account/authorization.phtml" after="minicart">
+                                        <arguments>
+                                            <argument name="label" xsi:type="string" translate="true">Login</argument>
+                                            <argument name="sortOrder" xsi:type="number">000</argument>
+                                        </arguments>
+                                    </block>
+                                </referenceBlock>
+                            </container>
+                        </container>
+                    </container>
+                </container>
+            </referenceContainer>
+            <referenceContainer name="page.top" htmlClass="header-bottom" htmlTag="div">
+                <container htmlTag="div" htmlClass="container">
+                    <container htmlTag="div" htmlClass="row">
+                        <container name="header-main-menu" htmlTag="div" htmlClass="col-sm-9 pl-0" />
+                        <container name="menu-search-box" htmlTag="div" htmlClass="col-sm-3">
+                            <block class="Magento\Framework\View\Element\Template" name="form-search" template="Magento_Datlt::forms/form-search.phtml">
+                                <arguments>
+                                    <argument name="configProvider" xsi:type="object">Magento\Search\ViewModel\ConfigProvider</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                    </container>
+                </container>
+            </referenceContainer>
+        </referenceContainer>
+
+        <container name="slide" htmlTag="section" htmlId="slider" after="header.container">
+            <block name="banner-slider" class="Magento\Datlt\Block\Header\Slide" template="Magento_Datlt::headers/slide.phtml" />
+        </container>
+
+        <referenceContainer name="main.content" htmlTag="main" htmlId="maincontent" htmlClass="container">
+            <referenceContainer name="columns" htmlClass="row">
+                <referenceContainer name="main" label="Main Content Container" htmlClass="col-sm-9 pull-right" />
+                <referenceContainer name="sidebar.additional">
+                    <container name="sidebar-category" htmlTag="div" htmlClass="block block-category" before="catalog.compare.sidebar">
+                        <block class="Magento\Datlt\Block\Sidebar\Category" template="Magento_Datlt::sidebar/category.phtml"/>
+                    </container>
+                </referenceContainer>
+            </referenceContainer>
+        </referenceContainer>
+
+        <referenceContainer name="footer-container" htmlClass="footer-container">
+            <container name="footer-top" htmlTag="div" htmlClass="footer-top">
+                <block class="Magento\Datlt\Block\Footer\FooterTop" template="Magento_Datlt::footers/footertop.phtml"/>
+            </container>
+            <container name="footer-widget" htmlTag="div" htmlClass="footer-widget" after="footer-top">
+                <container htmlTag="div" htmlClass="container">
+                    <container name="footer-policy" htmlTag="div" htmlClass="row">
+                        <block class="Magento\Theme\Block\Html\Footer" name="policy" template="Magento_Datlt::footers/policies.phtml"/>
+                        <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" after="policy" template="Magento_Datlt::footers/subscribe.phtml" ifconfig="newsletter/general/active"/>
+                    </container>
+                </container>
+            </container>
+            <container name="footer-bottom" htmlTag="div" htmlClass="footer-bottom" after="footer-widget">
+                <container name="footer-copyright" htmlTag="div" htmlClass="container">
+                    <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="Magento_Datlt::footers/copyright.phtml"/>
+                </container>
+            </container>
+        </referenceContainer>
+        <container htmlTag="div" after="footer-container">
+            <block class="Magento\Datlt\Block\Footer\ScrollUp" template="Magento_Datlt::footers/scrollup.phtml"/>
+        </container>
+
+        <move element="page.top" destination="header.container" after="header-wrapper"/>
+        <move element="top.links" destination="header-link-menu" />
+        <move element="navigation.sections" destination="header-main-menu"/>
+        <move element="footer_links" destination="footer-policy" after="policy"/>
+        <move element="slide" destination="page.wrapper" after="header.container"/>
+
+        <referenceContainer name="page.messages" display="false"/>
+        <referenceBlock name="skip_to_content.target" remove="true"/>
+        <referenceBlock name="footer_links" display="false"/>
+        <referenceBlock name="header" remove="true"/>
+        <referenceBlock name="catalog.compare.link" remove="true"/>
+        <referenceBlock name="register-link" remove="true"/>
+        <referenceBlock name="logo" remove="true"/>
+        <referenceBlock name="top.search" remove="true"/>
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="skip_to_content" remove="true" />
+
+    </body>
+</page>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="product-details" htmlTag="div" htmlClass="product-details">
+                <referenceBlock name="product.info.options.default" template="Magento_Datlt::products/view/options/type/default.phtml"/>
+                <referenceBlock name="product.info.sku">
+                    <arguments>
+                        <argument name="at_label" xsi:type="string">Web ID</argument>
+                    </arguments>
+                </referenceBlock>
+                <referenceBlock name="product.info.form.options">
+                    <block class="Magento\Catalog\Block\Product\View" name="product.info.options.calendar" before="product.info.options.wrapper.bottom" template="Magento_Datlt::products/view/calendar.phtml" />
+                    <container htmlTag="div" htmlClass="col-sm-6">
+                        <block class="Magento\BannerSlider\Block\Widget\BannerSlider" after="product.info.options.wrapper.bottom" template="Magento_BannerSlider::banner/list.phtml"/>
+                    </container>
+                </referenceBlock>
+            </container>
+        </referenceContainer>
+
+        <move element="product.info.main" destination="product-details" before="-"/>
+        <move element="product.info.media" destination="product-details" before="product.info.main"/>
+        <move element="product.info.details" destination="product-details" after="product.info.main"/>
+        <move element="catalog.product.related" destination="product-details" after="product.info.details"/>
+
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.stock.sku" destination="product.info.main" before="product.info.price"/>
+
+        <referenceBlock name="banner-slider" display="false" />
+        <referenceBlock name="product.info.social" display="false" />
+        <referenceBlock name="breadcrumbs" remove="true" />
+    </body>
+</page>

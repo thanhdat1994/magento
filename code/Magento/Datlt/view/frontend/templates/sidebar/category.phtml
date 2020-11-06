@@ -1,0 +1,40 @@
+<h2>Category</h2>
+<div class="panel-group category-products" id="accordian">
+    <?php $_categories = $block->getStoreCategories(); ?>
+    <?php foreach ($_categories as $_category): ?>
+        <div class="panel panel-default">
+            <?php $_subcategories = $block->getChildrenCategories($_category->getId()) ?>
+            <?php if (count($_subcategories) > 0): ?>
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#<?php echo $_category->getUrlKey() ?>" class="collapsed" data-parent="#accordian">
+                        <?php echo $_category->getName() ?>
+                        <i class="fa fa-plus pull-right"></i>
+                    </a>
+                </h4>
+            </div>
+            <div id="<?php echo $_category->getUrlKey() ?>" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul>
+                        <?php foreach($_subcategories as $_subcategory): ?>
+                            <li>
+                                <a href="<?php echo $block->getUrlCategory($_subcategory->getId()) ?>">
+                                    <?php echo $_subcategory->getName() ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+            <?php else: ?>
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="<?php echo $block->getUrlCategory($_category->getId()) ?>" data-parent="#accordian">
+                        <?php echo $_category->getName() ?>
+                    </a>
+                </h4>
+            </div>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>

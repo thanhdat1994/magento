@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/**
+ * Product view template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<div class="product-option-delivery-date">
+    <label>Date of delivery: </label>
+    <input type="text" class="input-text" id="delivery-date" style="width: auto" name="delivery-date"/>
+</div>
+<script>
+    require([
+        'jquery',
+        'mage/translate',
+        'mage/calendar'
+    ], function ($, $t) {
+        $('#delivery-date').calendar({
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            currentText: $t('Today'),
+            closeText: $t('Close'),
+            showWeek: true
+        });
+    })
+</script>
