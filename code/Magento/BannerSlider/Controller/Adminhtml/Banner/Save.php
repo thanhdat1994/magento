@@ -6,7 +6,7 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\TestFramework\Inspection\Exception;
-use Magento\BannerSlider\Model\Banner\ImageUploader;
+use Magento\BannerSlider\Model\Component\ImageUploader;
 
 class Save extends \Magento\Backend\App\Action
 {

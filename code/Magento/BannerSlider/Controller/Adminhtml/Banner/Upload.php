@@ -12,7 +12,7 @@ class Upload extends \Magento\Backend\App\Action
     /**
      * Image Uploader
      *
-     * @var \Magento\BannerSlider\Model\Banner\ImageUploader
+     * @var \Magento\BannerSlider\Model\Component\ImageUploader
      */
     protected $imageUploader;
 
@@ -20,11 +20,11 @@ class Upload extends \Magento\Backend\App\Action
      * Upload constructor.
      *
      * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\BannerSlider\Model\Banner\ImageUploader $imageUploader
+     * @param \Magento\BannerSlider\Model\Component\ImageUploader $imageUploader
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magento\BannerSlider\Model\Banner\ImageUploader $imageUploader
+        \Magento\BannerSlider\Model\Component\ImageUploader $imageUploader
     ) {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;

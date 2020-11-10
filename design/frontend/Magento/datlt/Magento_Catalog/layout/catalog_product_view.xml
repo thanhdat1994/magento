@@ -17,9 +17,9 @@
                 </referenceBlock>
                 <referenceBlock name="product.info.form.options">
                     <block class="Magento\Catalog\Block\Product\View" name="product.info.options.calendar" before="product.info.options.wrapper.bottom" template="Magento_Datlt::products/view/calendar.phtml" />
-                    <container htmlTag="div" htmlClass="col-sm-6">
-                        <block class="Magento\BannerSlider\Block\Widget\BannerSlider" after="product.info.options.wrapper.bottom" template="Magento_BannerSlider::banner/list.phtml"/>
-                    </container>
+<!--                    <container htmlTag="div" htmlClass="col-sm-6">-->
+<!--                        <block class="Magento\BannerSlider\Block\Widget\BannerSlider" after="product.info.options.wrapper.bottom" template="Magento_BannerSlider::banner/list.phtml"/>-->
+<!--                    </container>-->
                 </referenceBlock>
             </container>
         </referenceContainer>
