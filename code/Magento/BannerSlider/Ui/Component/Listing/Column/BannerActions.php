@@ -17,8 +17,8 @@ class BannerActions extends Column
     /**
      * Url path
      */
-    const URL_PATH_EDIT = 'magento_banners_slider/banner/edit';
-    const URL_PATH_DELETE = 'magento_banners_slider/banner/delete';
+    const URL_PATH_EDIT = 'banner/banner/edit';
+    const URL_PATH_DELETE = 'banner/banner/delete';
 
     /**
      * @var UrlInterface

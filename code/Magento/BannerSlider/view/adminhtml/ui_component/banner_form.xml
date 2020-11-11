@@ -27,7 +27,7 @@
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="submit_url" xsi:type="url" path="magento_banners_slider/banner/save"/>
+                    <item name="submit_url" xsi:type="url" path="banner/banner/save"/>
                 </item>
             </argument>
         </argument>
@@ -110,10 +110,10 @@
                     <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
                     <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
                     <item name="validation" xsi:type="array">
-                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="required-entry" xsi:type="boolean">false</item>
                     </item>
                     <item name="uploaderConfig" xsi:type="array">
-                        <item name="url" xsi:type="url" path="magento_banners_slider/banner/upload"/>
+                        <item name="url" xsi:type="url" path="banner/banner/upload"/>
                     </item>
                 </item>
             </argument>

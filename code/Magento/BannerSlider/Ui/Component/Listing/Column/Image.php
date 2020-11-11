@@ -10,7 +10,7 @@ class Image extends \Magento\Ui\Component\Listing\Columns\Column
     /**
      * Url path
      */
-    const URL_PATH_EDIT = 'magento_banners_slider/banner/edit';
+    const URL_PATH_EDIT = 'banner/banner/edit';
 
     /**
      * @var \Magento\BannerSlider\Model\Banner

@@ -11,6 +11,13 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 class GenericButton implements ButtonProviderInterface
 {
     /**
+     * Url Builder
+     *
+     * @var \Magento\Framework\UrlInterface
+     */
+    protected $urlBuilder;
+
+    /**
      * @var Context
      */
     protected $context;
@@ -26,8 +33,10 @@ class GenericButton implements ButtonProviderInterface
      */
     public function __construct(
         Context $context,
+        \Magento\Backend\Block\Widget\Context $a,
         \Magento\Framework\AuthorizationInterface $authorization
     ) {
+        $this->urlBuilder = $a->getUrlBuilder();
         $this->context = $context;
         $this->_authorization = $authorization;
     }
@@ -40,7 +49,7 @@ class GenericButton implements ButtonProviderInterface
     public function getBannerId()
     {
         // lỗi chỗ này
-        return (int)$this->context->getRequestParams('id');
+        return (int)$this->context->getRequestParam('id');
     }
 
     /**
@@ -53,7 +62,7 @@ class GenericButton implements ButtonProviderInterface
     public function getUrl($route = '', $params = [])
     {
         // lỗi chỗ này
-        return $this->context->getUrl($route, $params);
+        return $this->urlBuilder->getUrl($route, $params);
     }
 
     /**

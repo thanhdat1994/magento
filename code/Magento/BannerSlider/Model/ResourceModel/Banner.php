@@ -53,9 +53,9 @@ class Banner extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
             throw new LocalizedException(__('The URL Link is invalid.'));
         }
 
-        if (!is_numeric($groupId)) {
-            throw new LocalizedException(__('The Group Name is required.'));
-        }
+//        if (!is_numeric($groupId)) {
+//            throw new LocalizedException(__('The Group Name is required.'));
+//        }
 
         if (!empty($order) && !is_numeric($order)) {
             throw new LocalizedException(__('The Sort Order must be a numeric.'));
