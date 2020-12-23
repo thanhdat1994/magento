@@ -36,51 +36,6 @@
                                             <argument name="sortOrder" xsi:type="number">220</argument>
                                         </arguments>
                                     </block>
-                                    <block class="Magento\Checkout\Block\Cart\Sidebar" name="minicart" as="minicart" after="wish-list-link" template="Magento_Datlt::account/minicart.phtml">
-                                        <arguments>
-                                            <argument name="sortOrder" xsi:type="number">110</argument>
-                                            <argument name="jsLayout" xsi:type="array">
-                                                <item name="types" xsi:type="array"/>
-                                                <item name="components" xsi:type="array">
-                                                    <item name="minicart_content" xsi:type="array">
-                                                        <item name="component" xsi:type="string">Magento_Checkout/js/view/minicart</item>
-                                                        <item name="config" xsi:type="array">
-                                                            <item name="template" xsi:type="string">Magento_Checkout/minicart/content</item>
-                                                        </item>
-                                                        <item name="children" xsi:type="array">
-                                                            <item name="subtotal.container" xsi:type="array">
-                                                                <item name="component" xsi:type="string">uiComponent</item>
-                                                                <item name="config" xsi:type="array">
-                                                                    <item name="displayArea" xsi:type="string">subtotalContainer</item>
-                                                                </item>
-                                                                <item name="children" xsi:type="array">
-                                                                    <item name="subtotal" xsi:type="array">
-                                                                        <item name="component" xsi:type="string">uiComponent</item>
-                                                                        <item name="config" xsi:type="array">
-                                                                            <item name="template" xsi:type="string">Magento_Checkout/minicart/subtotal</item>
-                                                                        </item>
-                                                                    </item>
-                                                                </item>
-                                                            </item>
-                                                            <item name="extra_info" xsi:type="array">
-                                                                <item name="component" xsi:type="string">uiComponent</item>
-                                                                <item name="config" xsi:type="array">
-                                                                    <item name="displayArea" xsi:type="string">extraInfo</item>
-                                                                </item>
-                                                            </item>
-                                                            <item name="promotion" xsi:type="array">
-                                                                <item name="component" xsi:type="string">uiComponent</item>
-                                                                <item name="config" xsi:type="array">
-                                                                    <item name="displayArea" xsi:type="string">promotion</item>
-                                                                </item>
-                                                            </item>
-                                                        </item>
-                                                    </item>
-                                                </item>
-                                            </argument>
-                                        </arguments>
-                                        <container name="minicart.addons" label="Mini-cart promotion block"/>
-                                    </block>
                                     <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link"
                                            template="Magento_Datlt::account/authorization.phtml" after="minicart">
                                         <arguments>
@@ -152,8 +107,10 @@
         <move element="navigation.sections" destination="header-main-menu"/>
         <move element="footer_links" destination="footer-policy" after="policy"/>
         <move element="slide" destination="page.wrapper" after="header.container"/>
+        <move element="minicart" destination="top.links" after="wish-list-link"/>
 
         <referenceContainer name="page.messages" display="false"/>
+        <referenceContainer name="header.panel" display="false"/>
         <referenceBlock name="skip_to_content.target" remove="true"/>
         <referenceBlock name="footer_links" display="false"/>
         <referenceBlock name="header" remove="true"/>

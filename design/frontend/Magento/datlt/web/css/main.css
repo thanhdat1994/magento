@@ -2666,3 +2666,6 @@ h2.text-title {
 .mark {
     background-color: #F2F2F2 !important;
 }
+.navigation .ui-menu-item .submenu a {
+    padding: 8px 5px !important;
+}

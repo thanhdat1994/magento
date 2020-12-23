@@ -5,7 +5,7 @@
  * See COPYING.txt for license details.
  */
 -->
-<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main" htmlClass="container-full"/>
@@ -17,6 +17,7 @@
         <move element="checkout.cart.crosssell" destination="checkout.cart.container" after="-" />
         <move element="checkout.cart.coupon" destination="cart.discount" />
         <move element="checkout.cart.shortcut.buttons" destination="checkout.cart.methods" after="checkout.cart.methods.onepage.bottom"/>
-        <referenceBlock name="banner-slider" display="false" />
+        <referenceBlock name="banner-slider" remove="true" />
+        <referenceContainer name="sidebar.additional" remove="true" />
     </body>
 </page>
